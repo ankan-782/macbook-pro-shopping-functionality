@@ -1,13 +1,15 @@
+let access = true;
+
 //promo code functionality
 function promoCodeDiscount() {
     const currentPriceField = document.getElementById('discount-price')
     const currentPrice = currentPriceField.innerText;
     const promoCodeField = document.getElementById('promoCode-inputField')
     const promoCode = promoCodeField.value
-    if (promoCode.toLowerCase() == 'stevekaku') {
+    if (promoCode.toLowerCase() == 'stevekaku' && access == true) {
         const discountedPrice = currentPrice - (currentPrice * 20 * 0.01);
         currentPriceField.innerText = discountedPrice;
-        document.getElementById('promo-btn').setAttribute('disabled', true);
+        access = false;
     }
     promoCodeField.value = '';
 }
@@ -19,7 +21,12 @@ function totalPrice() {
     const costWithExtraDelivery = document.getElementById('delivery-cost');
     const totalPrice = 1299 + parseFloat(costWithExtraMemory.innerText) + parseFloat(costWithExtraStorage.innerText) + parseFloat(costWithExtraDelivery.innerText);
     document.getElementById('total-price').innerText = totalPrice;
-    document.getElementById('discount-price').innerText = totalPrice;
+    if(access == true){
+        document.getElementById('discount-price').innerText = totalPrice;
+    }
+    else {
+        document.getElementById('discount-price').innerText = totalPrice - (totalPrice * 20 * 0.2);
+    }
 }
 
 //memory-option buttons functionality
