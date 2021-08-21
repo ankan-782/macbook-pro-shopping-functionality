@@ -25,7 +25,7 @@ function totalPrice() {
         document.getElementById('discount-price').innerText = totalPrice;
     }
     else {
-        document.getElementById('discount-price').innerText = totalPrice - (totalPrice * 20 * 0.2);
+        document.getElementById('discount-price').innerText = totalPrice - (totalPrice * 20 * 0.01);
     }
 }
 
