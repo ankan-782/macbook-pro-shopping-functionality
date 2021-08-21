@@ -1,10 +1,10 @@
 //promo code functionality
-function promoCodeDiscount(){
+function promoCodeDiscount() {
     const currentPriceField = document.getElementById('discount-price')
     const currentPrice = currentPriceField.innerText;
     const promoCodeField = document.getElementById('promoCode-inputField')
     const promoCode = promoCodeField.value
-    if(promoCode.toLowerCase() == 'stevekaku'){
+    if (promoCode.toLowerCase() == 'stevekaku') {
         const discountedPrice = currentPrice - (currentPrice * 20 * 0.01);
         currentPriceField.innerText = discountedPrice;
         document.getElementById('promo-btn').setAttribute('disabled', true);
